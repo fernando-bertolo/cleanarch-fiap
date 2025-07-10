@@ -16,15 +16,14 @@ public class Curso {
     private ArrayList<Estudante> estudantes = new ArrayList<>();
 
     public Curso(String nome, boolean ativo) {
-        boolean nomeV = nomeValido(nome);
+        this.nomeValido(nome);
         this.nome = nome;
         this.ativo = ativo;
     }
 
-    private boolean nomeValido(String nome) {
+    private void nomeValido(String nome) {
         if(nome.trim().isBlank()) {
             throw new InvalidParameterException("Nome inválido");
         }
-        return true;
     }
 }
