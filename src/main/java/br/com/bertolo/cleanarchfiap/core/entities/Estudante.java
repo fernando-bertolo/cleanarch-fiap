@@ -43,6 +43,22 @@ public class Estudante {
         return estudante;
     }
 
+    public static Estudante create(String identificacaoInterna, String nome, String enderecoEmail, int idade) throws IllegalArgumentException {
+        if(nome == null || enderecoEmail == null) {
+            throw new IllegalArgumentException("Nome e email não podem ser nulos");
+        }
+
+        idadeValida(idade);
+        enderecoEmailValido(enderecoEmail);
+
+        Estudante estudante = new Estudante();
+        estudante.setIdade(idade);
+        estudante.setNome(nome);
+        estudante.setEnderecoEmail(enderecoEmail);
+        estudante.setIdentificacaoInterna(identificacaoInterna);
+        return estudante;
+    }
+
     private static void idadeValida(int idade) {
         if(idade <= 18){
             throw new IllegalArgumentException("Idade deve ser maior ou igual a 18 anos");
